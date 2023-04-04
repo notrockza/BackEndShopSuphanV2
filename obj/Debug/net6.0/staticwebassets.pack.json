@@ -1,0 +1,253 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\030ea719-ae7f-4b72-80af-af58ceb769af.png",
+      "PackagePath": "staticwebassets\\images\\030ea719-ae7f-4b72-80af-af58ceb769af.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\03e02f9e-8cf6-4665-a4c0-ea1bc478a347.jpg",
+      "PackagePath": "staticwebassets\\images\\03e02f9e-8cf6-4665-a4c0-ea1bc478a347.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\0ddf2e6f-4913-46b7-99d9-a1b8f160afcd.jpg",
+      "PackagePath": "staticwebassets\\images\\0ddf2e6f-4913-46b7-99d9-a1b8f160afcd.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\11ce305f-2424-4a34-bb7e-33f906a1cf36.jpg",
+      "PackagePath": "staticwebassets\\images\\11ce305f-2424-4a34-bb7e-33f906a1cf36.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\12d1d5d5-1c2f-446e-b2bd-619782e890ba.jpg",
+      "PackagePath": "staticwebassets\\images\\12d1d5d5-1c2f-446e-b2bd-619782e890ba.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\150000b6-d24c-4c4a-ad88-a8ccc5c352f2.jpg",
+      "PackagePath": "staticwebassets\\images\\150000b6-d24c-4c4a-ad88-a8ccc5c352f2.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\192c1f94-1b49-432b-9a40-cd4d8eb29eb4.jpg",
+      "PackagePath": "staticwebassets\\images\\192c1f94-1b49-432b-9a40-cd4d8eb29eb4.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\19d4cdbb-53de-4019-adff-f9f9449591eb.jpg",
+      "PackagePath": "staticwebassets\\images\\19d4cdbb-53de-4019-adff-f9f9449591eb.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\1f443984-805d-4277-99a7-b2c53c2ad89a.jpg",
+      "PackagePath": "staticwebassets\\images\\1f443984-805d-4277-99a7-b2c53c2ad89a.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\20d69d63-d629-4ccc-bc56-492d1c91644f.jpg",
+      "PackagePath": "staticwebassets\\images\\20d69d63-d629-4ccc-bc56-492d1c91644f.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\226e4517-743b-4175-beb7-f72c7b447ff0.png",
+      "PackagePath": "staticwebassets\\images\\226e4517-743b-4175-beb7-f72c7b447ff0.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\2578d82a-110b-453c-97a6-d071d70f20a2.jpg",
+      "PackagePath": "staticwebassets\\images\\2578d82a-110b-453c-97a6-d071d70f20a2.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\2a7775cf-5be7-453f-b910-3f4dfcd96b1c.jpg",
+      "PackagePath": "staticwebassets\\images\\2a7775cf-5be7-453f-b910-3f4dfcd96b1c.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\3047c3a8-b494-4a3e-b8a0-cfa9d2cf4583.jpg",
+      "PackagePath": "staticwebassets\\images\\3047c3a8-b494-4a3e-b8a0-cfa9d2cf4583.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\32df7838-6aa5-4a77-8dff-38364e7a3c4b.jpg",
+      "PackagePath": "staticwebassets\\images\\32df7838-6aa5-4a77-8dff-38364e7a3c4b.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\34d46760-77da-474a-9079-18fa029c37e1.jpg",
+      "PackagePath": "staticwebassets\\images\\34d46760-77da-474a-9079-18fa029c37e1.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\37d93ac1-0ee1-4dd9-9984-034d225c712a.jpg",
+      "PackagePath": "staticwebassets\\images\\37d93ac1-0ee1-4dd9-9984-034d225c712a.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\387ed631-ce63-4186-94e9-a45f6cccbe19.jpg",
+      "PackagePath": "staticwebassets\\images\\387ed631-ce63-4186-94e9-a45f6cccbe19.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\39a81324-d30b-4a7f-b962-447ff2db03f3.jpg",
+      "PackagePath": "staticwebassets\\images\\39a81324-d30b-4a7f-b962-447ff2db03f3.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\3d0027a2-c4b9-486d-a37a-bb86d577ade1.jpg",
+      "PackagePath": "staticwebassets\\images\\3d0027a2-c4b9-486d-a37a-bb86d577ade1.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\456df3aa-27da-4a7a-b37d-f5103f5eb40e.png",
+      "PackagePath": "staticwebassets\\images\\456df3aa-27da-4a7a-b37d-f5103f5eb40e.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\4d15ef73-4e74-4d06-8d52-bd544714a40d.jpg",
+      "PackagePath": "staticwebassets\\images\\4d15ef73-4e74-4d06-8d52-bd544714a40d.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\4db5f1fd-595b-4e33-b556-187451f07ba2.jpg",
+      "PackagePath": "staticwebassets\\images\\4db5f1fd-595b-4e33-b556-187451f07ba2.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\4eba7d7c-0f55-4719-b55e-2b5772dbadaf.jpg",
+      "PackagePath": "staticwebassets\\images\\4eba7d7c-0f55-4719-b55e-2b5772dbadaf.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\58a4d03b-56b9-426d-89a3-1c3d11f50b79.jpg",
+      "PackagePath": "staticwebassets\\images\\58a4d03b-56b9-426d-89a3-1c3d11f50b79.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\595d7077-652c-494b-994b-5ad0eb88d8ae.jpg",
+      "PackagePath": "staticwebassets\\images\\595d7077-652c-494b-994b-5ad0eb88d8ae.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\5c0a8cf3-04cb-4590-b254-2c87f1e8e17e.png",
+      "PackagePath": "staticwebassets\\images\\5c0a8cf3-04cb-4590-b254-2c87f1e8e17e.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\5d3ab011-f16a-4221-8451-f090359f6aff.jpg",
+      "PackagePath": "staticwebassets\\images\\5d3ab011-f16a-4221-8451-f090359f6aff.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\6134064e-293e-4017-a032-3a65e14c59df.jpg",
+      "PackagePath": "staticwebassets\\images\\6134064e-293e-4017-a032-3a65e14c59df.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\6552854c-a35a-4798-9d93-e1223d918937.jpg",
+      "PackagePath": "staticwebassets\\images\\6552854c-a35a-4798-9d93-e1223d918937.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\6972f208-0467-4a6c-8a4b-dbb6911b6bd6.jpg",
+      "PackagePath": "staticwebassets\\images\\6972f208-0467-4a6c-8a4b-dbb6911b6bd6.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\724c7772-85f5-489f-9f2c-d5bb06efc429.jpg",
+      "PackagePath": "staticwebassets\\images\\724c7772-85f5-489f-9f2c-d5bb06efc429.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\73ca34e6-ded4-4d70-8cbe-aefc6bd2a9d1.png",
+      "PackagePath": "staticwebassets\\images\\73ca34e6-ded4-4d70-8cbe-aefc6bd2a9d1.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\768ff7d0-4216-45ce-b75e-43c55e04c588.jpg",
+      "PackagePath": "staticwebassets\\images\\768ff7d0-4216-45ce-b75e-43c55e04c588.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\77f5bf9e-6ccb-45c3-b90d-7b71eede3af0.jpg",
+      "PackagePath": "staticwebassets\\images\\77f5bf9e-6ccb-45c3-b90d-7b71eede3af0.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\7be4d3d4-6de3-4df4-91a9-61361c3dc5d5.jpg",
+      "PackagePath": "staticwebassets\\images\\7be4d3d4-6de3-4df4-91a9-61361c3dc5d5.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\822d4633-056c-4c6e-9874-62b599926d6e.png",
+      "PackagePath": "staticwebassets\\images\\822d4633-056c-4c6e-9874-62b599926d6e.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\894d1335-790d-433e-ac83-a14a24cf6256.jpg",
+      "PackagePath": "staticwebassets\\images\\894d1335-790d-433e-ac83-a14a24cf6256.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\94964fee-c847-48e6-bcf9-eef22a50204f.jpg",
+      "PackagePath": "staticwebassets\\images\\94964fee-c847-48e6-bcf9-eef22a50204f.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\96ddb11b-9f90-4063-9e86-8ec7c4aa2a32.jpg",
+      "PackagePath": "staticwebassets\\images\\96ddb11b-9f90-4063-9e86-8ec7c4aa2a32.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\a5cc4e8c-4f4f-44e6-9422-94213a465ebb.png",
+      "PackagePath": "staticwebassets\\images\\a5cc4e8c-4f4f-44e6-9422-94213a465ebb.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\a7d9c0d1-255a-4190-b7db-69117cb76999.jpg",
+      "PackagePath": "staticwebassets\\images\\a7d9c0d1-255a-4190-b7db-69117cb76999.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\ac3e4f7d-0477-4a2a-9889-2e7bde78e964.jpg",
+      "PackagePath": "staticwebassets\\images\\ac3e4f7d-0477-4a2a-9889-2e7bde78e964.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\af0d8a5a-a629-48a5-825c-4d059d661b07.jpg",
+      "PackagePath": "staticwebassets\\images\\af0d8a5a-a629-48a5-825c-4d059d661b07.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\ba64589a-3f7e-4531-a7aa-c2ac58ef07f3.jpg",
+      "PackagePath": "staticwebassets\\images\\ba64589a-3f7e-4531-a7aa-c2ac58ef07f3.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\bb818579-79e4-4925-9680-357c1817b862.png",
+      "PackagePath": "staticwebassets\\images\\bb818579-79e4-4925-9680-357c1817b862.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\bb8dfdba-061f-4ab6-ab7a-8c19f4a1a693.png",
+      "PackagePath": "staticwebassets\\images\\bb8dfdba-061f-4ab6-ab7a-8c19f4a1a693.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\be24a709-5ca7-43d1-8a1c-5735b096557a.jpg",
+      "PackagePath": "staticwebassets\\images\\be24a709-5ca7-43d1-8a1c-5735b096557a.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\c5b64128-2e7f-4a23-8b42-360f671133d6.jpg",
+      "PackagePath": "staticwebassets\\images\\c5b64128-2e7f-4a23-8b42-360f671133d6.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\c93378b0-16ed-4046-9884-be90c2c89278.png",
+      "PackagePath": "staticwebassets\\images\\c93378b0-16ed-4046-9884-be90c2c89278.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\d0102404-e403-4815-93af-1d60ef787fbc.png",
+      "PackagePath": "staticwebassets\\images\\d0102404-e403-4815-93af-1d60ef787fbc.png"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\d3810de4-7277-49f9-9eb6-54b612d072d4.jpg",
+      "PackagePath": "staticwebassets\\images\\d3810de4-7277-49f9-9eb6-54b612d072d4.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\db5720dd-62b1-4de2-aed8-5b039f2fe0c6.jpg",
+      "PackagePath": "staticwebassets\\images\\db5720dd-62b1-4de2-aed8-5b039f2fe0c6.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\dc33ac8a-cec6-43f0-b898-90038530ec68.jpg",
+      "PackagePath": "staticwebassets\\images\\dc33ac8a-cec6-43f0-b898-90038530ec68.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\eb19b24f-c1cf-48b7-9d69-bcc7f16f90f2.jpg",
+      "PackagePath": "staticwebassets\\images\\eb19b24f-c1cf-48b7-9d69-bcc7f16f90f2.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\ed207c03-460a-4060-8d6c-1cbafc6d0aa3.jpg",
+      "PackagePath": "staticwebassets\\images\\ed207c03-460a-4060-8d6c-1cbafc6d0aa3.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\f516532f-2bd6-46d7-b8dc-b7f2366b92e4.jpg",
+      "PackagePath": "staticwebassets\\images\\f516532f-2bd6-46d7-b8dc-b7f2366b92e4.jpg"
+    },
+    {
+      "Id": "D:\\Cs63\\ReactTS\\BackEnd\\BackEndShopSuphan\\wwwroot\\images\\fc76b63e-99b6-476e-8e19-96a9dac9eb87.jpg",
+      "PackagePath": "staticwebassets\\images\\fc76b63e-99b6-476e-8e19-96a9dac9eb87.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ShopSuphan.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ShopSuphan.props",
+      "PackagePath": "build\\ShopSuphan.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ShopSuphan.props",
+      "PackagePath": "buildMultiTargeting\\ShopSuphan.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ShopSuphan.props",
+      "PackagePath": "buildTransitive\\ShopSuphan.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
