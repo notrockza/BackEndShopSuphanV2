@@ -1,4 +1,6 @@
-﻿namespace ShopSuphan.DTOS.ProductDescription
+﻿using ShopSuphan.Settings;
+
+namespace ShopSuphan.DTOS.ProductDescription
 {
     public class ProductDescriptionResponse
     {
@@ -14,8 +16,7 @@
             {
                 ID = productDescription.ID,
                 ProductID = productDescription.ProductID,
-                //Image = productDescription.Image,
-                Image = !string.IsNullOrEmpty(productDescription.Image) ? "https://localhost:7048/" + "images/" + productDescription.Image : "",
+                Image = !string.IsNullOrEmpty(productDescription.Image) ? ServerURLcs.URLServer + "images/" + productDescription.Image : "",
 
             };
         }

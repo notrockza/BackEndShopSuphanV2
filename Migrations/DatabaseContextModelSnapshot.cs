@@ -56,7 +56,7 @@ namespace ShopSuphan.Migrations
 
                     b.HasIndex("RoleID");
 
-                    b.ToTable("Account", (string)null);
+                    b.ToTable("Account");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.AccountPassword", b =>
@@ -75,7 +75,70 @@ namespace ShopSuphan.Migrations
 
                     b.HasIndex("AccountID");
 
-                    b.ToTable("AccountPassword", (string)null);
+                    b.ToTable("AccountPassword");
+                });
+
+            modelBuilder.Entity("ShopSuphan.Models.Address", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccountID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AddressInformationID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("StatusAddressID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AccountID");
+
+                    b.HasIndex("AddressInformationID");
+
+                    b.HasIndex("StatusAddressID");
+
+                    b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("ShopSuphan.Models.AddressInformation", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AccountPhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Province")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubDistrict")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZipCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("AddressInformation");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.Cart", b =>
@@ -101,7 +164,7 @@ namespace ShopSuphan.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("Cart", (string)null);
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.CategoryProduct", b =>
@@ -118,7 +181,24 @@ namespace ShopSuphan.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("CategoryProduct", (string)null);
+                    b.ToTable("CategoryProduct");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 2,
+                            Name = "category-01"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Name = "category-02"
+                        },
+                        new
+                        {
+                            ID = 999,
+                            Name = "rare"
+                        });
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.CommunityGroup", b =>
@@ -141,9 +221,55 @@ namespace ShopSuphan.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TextHistory")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
-                    b.ToTable("CommunityGroup", (string)null);
+                    b.ToTable("CommunityGroup");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CommunityGroupName = "เอกชัย",
+                            District = "เมือง",
+                            SubDistrict = "ท่าระหัด"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            CommunityGroupName = "ตลาดอู่ทอง",
+                            District = "อู่ทอง",
+                            SubDistrict = "อู่ทอง"
+                        });
+                });
+
+            modelBuilder.Entity("ShopSuphan.Models.Information", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Detaiinformation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nameinformation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Informations");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.LevelRarity", b =>
@@ -163,25 +289,49 @@ namespace ShopSuphan.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("LevelRarity", (string)null);
+                    b.ToTable("LevelRarity");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Date = new DateTime(2023, 5, 9, 16, 56, 20, 644, DateTimeKind.Local).AddTicks(6764),
+                            LevelRarityName = "หาได้ทั่วไป"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Date = new DateTime(2023, 5, 9, 16, 56, 20, 644, DateTimeKind.Local).AddTicks(6767),
+                            LevelRarityName = "ปานกลาง"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Date = new DateTime(2023, 5, 9, 16, 56, 20, 644, DateTimeKind.Local).AddTicks(6768),
+                            LevelRarityName = "หายาก"
+                        });
                 });
 
-            modelBuilder.Entity("ShopSuphan.Models.OrderAccount", b =>
+            modelBuilder.Entity("ShopSuphan.Models.OrderAggregate.OrderAccount", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AccountID")
-                        .HasColumnType("int");
-
                     b.Property<bool>("AccountStatus")
                         .HasColumnType("bit");
+
+                    b.Property<string>("AddressID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("PaymentStatus")
-                        .HasColumnType("bit");
+                    b.Property<int>("DeliveryFee")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("PriceTotal")
                         .HasColumnType("int");
@@ -191,15 +341,45 @@ namespace ShopSuphan.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AccountID");
+                    b.HasIndex("AddressID");
 
-                    b.ToTable("OrderAccount", (string)null);
+                    b.ToTable("OrderAccount");
+                });
+
+            modelBuilder.Entity("ShopSuphan.Models.OrderAggregate.OrderItem", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("OrderAccountID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ProductAmount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductPrice")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OrderAccountID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.Product", b =>
                 {
                     b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<int>("CategoryProductID")
                         .HasColumnType("int");
@@ -235,7 +415,7 @@ namespace ShopSuphan.Migrations
 
                     b.HasIndex("LevelRarityID");
 
-                    b.ToTable("Product", (string)null);
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.ProductDescription", b =>
@@ -254,34 +434,7 @@ namespace ShopSuphan.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("ProductDescription", (string)null);
-                });
-
-            modelBuilder.Entity("ShopSuphan.Models.ProductList", b =>
-                {
-                    b.Property<string>("ID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("OrderAccountID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ProductAmount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductPrice")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("OrderAccountID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("ProductList", (string)null);
+                    b.ToTable("ProductDescription");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.Review", b =>
@@ -295,9 +448,8 @@ namespace ShopSuphan.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ProductListID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -305,9 +457,11 @@ namespace ShopSuphan.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ProductListID");
+                    b.HasIndex("AccountID");
 
-                    b.ToTable("Reviews", (string)null);
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.ReviewImage", b =>
@@ -327,7 +481,7 @@ namespace ShopSuphan.Migrations
 
                     b.HasIndex("ReviewID");
 
-                    b.ToTable("ReviewImages", (string)null);
+                    b.ToTable("ReviewImages");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.Role", b =>
@@ -344,7 +498,45 @@ namespace ShopSuphan.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Role", (string)null);
+                    b.ToTable("Role");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Name = "User"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Name = "Admin"
+                        });
+                });
+
+            modelBuilder.Entity("ShopSuphan.Models.StatusAddress", b =>
+                {
+                    b.Property<int>("ID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("StatusAddress");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Name = "เป็นได้เเค่พี่น้อง"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Name = "เป็นได้เเค่เพื่อน"
+                        });
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.Account", b =>
@@ -369,6 +561,33 @@ namespace ShopSuphan.Migrations
                     b.Navigation("Account");
                 });
 
+            modelBuilder.Entity("ShopSuphan.Models.Address", b =>
+                {
+                    b.HasOne("ShopSuphan.Models.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShopSuphan.Models.AddressInformation", "AddressInformation")
+                        .WithMany()
+                        .HasForeignKey("AddressInformationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShopSuphan.Models.StatusAddress", "StatusAddress")
+                        .WithMany()
+                        .HasForeignKey("StatusAddressID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+
+                    b.Navigation("AddressInformation");
+
+                    b.Navigation("StatusAddress");
+                });
+
             modelBuilder.Entity("ShopSuphan.Models.Cart", b =>
                 {
                     b.HasOne("ShopSuphan.Models.Account", "Account")
@@ -388,15 +607,34 @@ namespace ShopSuphan.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ShopSuphan.Models.OrderAccount", b =>
+            modelBuilder.Entity("ShopSuphan.Models.OrderAggregate.OrderAccount", b =>
                 {
-                    b.HasOne("ShopSuphan.Models.Account", "Account")
+                    b.HasOne("ShopSuphan.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AccountID")
+                        .HasForeignKey("AddressID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Account");
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("ShopSuphan.Models.OrderAggregate.OrderItem", b =>
+                {
+                    b.HasOne("ShopSuphan.Models.OrderAggregate.OrderAccount", "OrderAccount")
+                        .WithMany()
+                        .HasForeignKey("OrderAccountID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ShopSuphan.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OrderAccount");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.Product", b =>
@@ -437,11 +675,11 @@ namespace ShopSuphan.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("ShopSuphan.Models.ProductList", b =>
+            modelBuilder.Entity("ShopSuphan.Models.Review", b =>
                 {
-                    b.HasOne("ShopSuphan.Models.OrderAccount", "OrderAccount")
+                    b.HasOne("ShopSuphan.Models.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("OrderAccountID")
+                        .HasForeignKey("AccountID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -451,20 +689,9 @@ namespace ShopSuphan.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("OrderAccount");
+                    b.Navigation("Account");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("ShopSuphan.Models.Review", b =>
-                {
-                    b.HasOne("ShopSuphan.Models.ProductList", "ProductList")
-                        .WithMany()
-                        .HasForeignKey("ProductListID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProductList");
                 });
 
             modelBuilder.Entity("ShopSuphan.Models.ReviewImage", b =>

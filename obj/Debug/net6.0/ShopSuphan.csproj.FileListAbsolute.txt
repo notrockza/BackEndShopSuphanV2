@@ -167,7 +167,6 @@ D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.GeneratedM
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.AssemblyInfoInputs.cache
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.AssemblyInfo.cs
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.csproj.CoreCompileInputs.cache
-D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.MvcApplicationPartsAssemblyInfo.cs
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.MvcApplicationPartsAssemblyInfo.cache
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\staticwebassets\msbuild.ShopSuphan.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\staticwebassets\msbuild.build.ShopSuphan.props
@@ -183,3 +182,4 @@ D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\refint\ShopSuphan.dll
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.pdb
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.genruntimeconfig.cache
 D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ref\ShopSuphan.dll
+D:\Cs63\ReactTS\BackEnd\BackEndShopSuphan\obj\Debug\net6.0\ShopSuphan.MvcApplicationPartsAssemblyInfo.cs

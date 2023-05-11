@@ -10,11 +10,16 @@ namespace ShopSuphan.Models
         public DateTime Created { get; set; } = DateTime.Now;
         public string Text { get; set; }
         public int AccountID { get; set; }
-        public string ProductListID { get; set; }
-        [ForeignKey("ProductListID")]
-        public virtual ProductList ProductList { get; set; }
+        //public string ProductListID { get; set; }
+        //[ForeignKey("ProductListID")]
+        //public virtual ProductList ProductList { get; set; }
 
-        [ForeignKey("AccountID")]
+        //[ForeignKey("AccountID")]
         public virtual Account Account { get; set; }
+        public int ProductID { get; set; }
+        //[ForeignKey("ProductID")]
+        public virtual Product Product { get; set; }
+
+
     }
 }

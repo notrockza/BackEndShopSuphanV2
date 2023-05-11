@@ -9,7 +9,9 @@ namespace ShopSuphan.Models
         public string CommunityGroupName { get; set; }
         public string District { get; set; }
         public string SubDistrict { get; set; }
-        
+        public string? TextHistory { get; set; }
+
+
     }
     
 }

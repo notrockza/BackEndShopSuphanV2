@@ -1,4 +1,7 @@
-﻿namespace ShopSuphan.DTOS.ProductList
+﻿using ShopSuphan.Models.OrderAggregate;
+using ShopSuphan.Settings;
+
+namespace ShopSuphan.DTOS.ProductList
 {
     public class ProductListResponse
     {
@@ -9,8 +12,8 @@
         public int ProductAmount { get; set; }
         public string ImageProduct { get; set; }
         public Models.Product Product { get; set; }
-        public Models.OrderAccount OrderAccount { get; set; }
-        static public ProductListResponse FromProductList(Models.ProductList productList)
+        public Models.OrderAggregate.OrderAccount OrderAccount { get; set; }
+        static public ProductListResponse FromProductList(OrderItem productList)
         {
             // return ตัวมันเอง
             return new ProductListResponse
@@ -22,7 +25,7 @@
                 ProductAmount = productList.ProductAmount,
                 Product = productList.Product,
                 OrderAccount = productList.OrderAccount,
-                ImageProduct = !string.IsNullOrEmpty(productList.Product.Image) ? "https://localhost:7048/" + "images/" + productList.Product.Image : "",
+                ImageProduct = !string.IsNullOrEmpty(productList.Product.Image) ? ServerURLcs.URLServer + "images/" + productList.Product.Image : "",
 
             };
         }

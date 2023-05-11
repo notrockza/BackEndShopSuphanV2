@@ -1,4 +1,6 @@
-﻿namespace ShopSuphan.DTOS.ReviewImage
+﻿using ShopSuphan.Settings;
+
+namespace ShopSuphan.DTOS.ReviewImage
 {
     public class ReviewImageResponse
     {
@@ -9,7 +11,7 @@
             return new ReviewImageResponse
             {
                 ID = reviewImage.ID,
-                Image = !string.IsNullOrEmpty(reviewImage.Image) ? "https://localhost:7048/" + "images/" + reviewImage.Image : "",
+                Image = !string.IsNullOrEmpty(reviewImage.Image) ? ServerURLcs.URLServer + "images/" + reviewImage.Image : "",
 
             };
         }

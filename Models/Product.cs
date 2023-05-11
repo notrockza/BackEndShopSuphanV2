@@ -5,7 +5,7 @@ namespace ShopSuphan.Models
 {
     public class Product
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public int ID { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }

@@ -35,9 +35,9 @@ namespace ShopSuphan.Services
             return await databaseContext.Product.Include(e => e.CategoryProduct).Include(e =>e.CommunityGroup).Include(e => e.LevelRarity).ToListAsync();
         }
 
-        public async Task<Product> GetByID(int idProduct)
+        public async Task<Product> GetByID(int? idProduct)
         {
-            return await databaseContext.Product.Include(e => e.CategoryProduct).AsNoTracking().FirstOrDefaultAsync(x => x.ID == idProduct);
+            return await databaseContext.Product.Include(e => e.CategoryProduct).Include(e => e.CommunityGroup).Include(e => e.LevelRarity).AsNoTracking().FirstOrDefaultAsync(x => x.ID == idProduct);
         }
 
         //public async Task<Product> GetByID(int id)

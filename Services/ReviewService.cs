@@ -31,31 +31,12 @@ namespace ShopSuphan.Services
 
         public async Task<IEnumerable<Review>> GetAll(int idProduct)
         {
-            var review = new List<Review>();
-            var product = await productListService.GetByIdProduct(idProduct);
-            if (product == null) return null;
 
-            for (int i = 0; i < product.Count(); i++)
-            {
-                var data = await databaseContext.Reviews.Include(e => e.Account).Where(e => e.ProductListID == product[i].ID).ToListAsync();
-                if (data == null) return null;
-                review.AddRange(data);
-            }
-
+            var review = await databaseContext.Reviews.Include(e => e.Account).Where(e => e.ProductID == idProduct).ToListAsync();
+            if (review == null) return null;
             return review;
         }
 
-        public async Task<IEnumerable<Review>> GetByIdAccount(int idAccount, string idListProduct)
-        {
-            var review = await databaseContext.Reviews.Where(e => e.AccountID == idAccount && e.ProductListID == idListProduct).ToListAsync();
-            return review;
-        }
-
-        public async Task<IEnumerable<Review>> GetByIdProductList(string idProductList)
-        {
-            var review = await databaseContext.Reviews.Where(e => e.ProductListID == idProductList).ToListAsync();
-            return review;
-        }
 
         public async Task<(string erorrImage, List<string> imageName)> UploadImage(IFormFileCollection formFiles)
         {
@@ -98,5 +79,17 @@ namespace ShopSuphan.Services
             }
             return Id;
         }
+
+        public async Task<IEnumerable<Review>> GetByIdListProduct(int idAccount, int idProduct)
+        {
+
+            var review = await databaseContext.Reviews.Include(e => e.Account).Include(e => e.Product).Where(e => e.AccountID == idAccount).Where(e => e.ProductID == idProduct).ToListAsync();
+            if (review == null) return null;
+            return review;
+
+
+        }
+
+        
     }
 }

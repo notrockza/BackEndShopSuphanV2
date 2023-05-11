@@ -18,5 +18,7 @@ namespace ShopSuphan.DTOS.CommunityGroup
         [Required]
         [MaxLength(100, ErrorMessage = "no more than {1} chars")]
         public string SubDistrict { get; set; }
+
+        public string? TextHistory { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class ReviewRequest
     {
-        public string ProductListID { get; set; }
+        public int ProductID { get; set; }
         public string Text { get; set; }
         public int AccountID { get; set; }
         public IFormFileCollection? ImageFiles { get; set; }

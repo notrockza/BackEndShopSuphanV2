@@ -1,4 +1,6 @@
-﻿namespace ShopSuphan.DTOS.Account
+﻿using ShopSuphan.Settings;
+
+namespace ShopSuphan.DTOS.Account
 {
     public class AccountResponse
     {
@@ -17,9 +19,10 @@
             {
                 ID = account.ID,
                 Name = account.Name,
-                Image = !string.IsNullOrEmpty(account.Image) ? "https://localhost:7048/" + "images/" + account.Image : "",
+                Image = !string.IsNullOrEmpty(account.Image) ? ServerURLcs.URLServer + "images/" + account.Image : "",
                 Email = account.Email,
                 Tell = account.Tell,
+                Password = account.Password,
                 RoleName = account.Role.Name
             };
         }

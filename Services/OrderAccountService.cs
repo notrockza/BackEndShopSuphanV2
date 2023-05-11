@@ -1,7 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using ShopSuphan.DTOS.OrderAccount;
 using ShopSuphan.DTOS.ProductList;
+using ShopSuphan.Extenstions;
 using ShopSuphan.interfaces;
 using ShopSuphan.Models;
+using ShopSuphan.Models.OrderAggregate;
 
 namespace ShopSuphan.Services
 {
@@ -14,46 +18,56 @@ namespace ShopSuphan.Services
             this.databaseContext = databaseContext;
             this.uploadFileService = uploadFileService;
         }
-        public async Task AddOrder(OrderAccount orderAccount, ProductListOrderRequest productListOrderRequest)
+        public async Task AddOrder(ProductListOrderRequest productListOrderRequest)
         {
-            if (string.IsNullOrEmpty(orderAccount.ID))
+            List<OrderItem> orderItems = new();
+            OrderAccount order = new()
             {
-                orderAccount.ID = await GenerateIdOrderCustomer();
-            }
-            var productList = new List<ProductList>();
-            for (var i = 0; i < productListOrderRequest.ProductID.Length; i++)
+                ID = GenerateID(),
+                Created = DateTime.Now,
+                AddressID = productListOrderRequest.AddrrssID,
+                PriceTotal = 0,
+                ProofOfPayment = "",
+                AccountStatus = false,
+                PaymentStatus = Paymentstatus.WaitingForPayment
+            };
+
+            foreach (var item in productListOrderRequest.Items)
             {
-                var item = new ProductList()
+                var product = await databaseContext.Product.FirstOrDefaultAsync(e => e.ID == item.ProductID);
+                product.Stock -= item.ProductAmount;
+                orderItems.Add(new OrderItem
                 {
-                    ID = await GenerateIdProductListr(),
-                    OrderAccountID = orderAccount.ID,
-                    ProductID = productListOrderRequest.ProductID[i],
-                    ProductAmount = Convert.ToInt32(productListOrderRequest.ProductAmount[i]),
-                    ProductPrice = productListOrderRequest.ProductPrice[i]
-                };
-                productList.Add(item);
+                    ProductAmount = item.ProductAmount,
+                    OrderAccountID = order.ID,
+                    ProductID =item.ProductID,
+                    ProductPrice = item.ProductPrice,
+                    ID= GenerateID(),
+
+                });
+                if (!string.IsNullOrEmpty(item.CartID))
+                    databaseContext.Remove(await databaseContext.Cart.FirstOrDefaultAsync(e => e.ID == item.CartID));
             }
-            //---------- AddRangeAsync เป็นการ Add ทั้งหมด ------
-            await databaseContext.OrderAccount.AddRangeAsync(orderAccount);
+            var subtotal = orderItems.Sum(item => item.ProductPrice * item.ProductAmount);
+            var deliveryFee = subtotal > 10000 ? 0 : 500;
+            order.PriceTotal = subtotal;
+            order.DeliveryFee = deliveryFee;
+           
+            await databaseContext.AddAsync(order);
+            await databaseContext.AddRangeAsync(orderItems);
 
-
-            // ------------------ Add สินค้าทั้งหมดไว้ใน List ---------------
-            await databaseContext.ProductList.AddRangeAsync(productList);
-            //---------------------------------------------------------
-
-            await RemoveCartProduct(productListOrderRequest);
-
-            await RemoveStockProduct(productListOrderRequest);
-
+            
 
             await databaseContext.SaveChangesAsync();
         }
+
+        private string GenerateID() => Guid.NewGuid().ToString("N");
 
         public async Task ConfirmOrder(List<OrderAccount> orderAccounts)
         {
             for (var i = 0; i < orderAccounts.Count(); i++)
             {
-                orderAccounts[i].PaymentStatus = true;
+                orderAccounts[i].PaymentStatus = Paymentstatus.SuccessfulPayment;
                 databaseContext.Update(orderAccounts[i]);
             }
             await databaseContext.SaveChangesAsync();
@@ -64,14 +78,14 @@ namespace ShopSuphan.Services
             await uploadFileService.DeleteImage(fileName);
         }
 
-        public async Task<IEnumerable<OrderAccount>> GetAll(int idAccount)
+        public async Task<IEnumerable<OrderDTO>> GetAll(int idAccount)
         {
-            return await databaseContext.OrderAccount.Where(e => e.AccountID == idAccount).ToListAsync();
+            return await databaseContext.OrderAccount.Include(e => e.Address).ProjectOrderToOrderDTO(databaseContext).Where(e => e.Address.AccountID == idAccount).ToListAsync();
         }
 
-        public async Task<IEnumerable<ProductList>> GetAllProductList(string idOrder)
+        public async Task<IEnumerable<OrderItem>> GetAllProductList(string idOrder)
         {
-            return await databaseContext.ProductList.Include(e => e.Product).Where(e => e.OrderAccountID == idOrder).ToListAsync();
+            return await databaseContext.OrderItem.Include(e => e.Product).Where(e => e.OrderAccountID == idOrder).ToListAsync();
         }
 
         public async Task<OrderAccount> GetByID(string id)
@@ -84,9 +98,14 @@ namespace ShopSuphan.Services
             return result;
         }
 
-        public Task<IEnumerable<OrderAccount>> GetConfirm()
+        public async Task<IEnumerable<OrderDTO>> GetConfirm()
         {
-            throw new NotImplementedException();
+            var result = await databaseContext.OrderAccount.Include(e => e.Address).ProjectOrderToOrderDTO(databaseContext).Where(e => e.ProofOfPayment != null && e.PaymentStatus == Paymentstatus.PendingApproval).ToListAsync();
+            if (result == null)
+            {
+                return null;
+            }
+            return result;
         }
 
         public async Task UpdateOrder(OrderAccount orderAccount)
@@ -110,31 +129,6 @@ namespace ShopSuphan.Services
             }
             return (errorMessage, imageName);
         }
-        public async Task RemoveCartProduct(ProductListOrderRequest productListOrderRequest)
-        {
-            if (productListOrderRequest.ProductID.Length > 0 && productListOrderRequest != null)
-            {
-                for (var i = 0; i < productListOrderRequest.ProductID.Length; i++)
-                {
-                    var result = await databaseContext.Cart.AsNoTracking().FirstOrDefaultAsync(e => e.ID == productListOrderRequest.CartID[i]);
-                    databaseContext.Remove(result);
-                }
-            }
-
-        }
-
-        public async Task RemoveStockProduct(ProductListOrderRequest productListOrderRequest)
-        {
-            if (productListOrderRequest.ProductID.Length > 0 && productListOrderRequest != null)
-            {
-                for (var i = 0; i < productListOrderRequest.ProductID.Length; i++)
-                {
-                    var result = await databaseContext.Product.AsNoTracking().FirstOrDefaultAsync(e => e.ID == productListOrderRequest.ProductID[i]);
-                    result.Stock -= productListOrderRequest.ProductAmount[i];
-                    databaseContext.Update(result);
-                }
-            }
-        }
 
         public async Task<string> GenerateIdProductListr()
         {
@@ -148,7 +142,7 @@ namespace ShopSuphan.Services
                 IdProductListr = DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss") + "-" + num;
 
 
-                var result = await databaseContext.ProductList.FindAsync(IdProductListr);
+                var result = await databaseContext.OrderItem.FindAsync(IdProductListr);
 
                 if (result == null)
                 {
@@ -180,5 +174,14 @@ namespace ShopSuphan.Services
             return IdProductListr;
         }
 
+        public async Task<IEnumerable<OrderDTO>> GetConfirmOrderAccount(int idAccount)
+        {
+            var result = await databaseContext.OrderAccount.Include(e => e.Address).ProjectOrderToOrderDTO(databaseContext).Where(e => e.Address.AccountID == idAccount).Where(e => e.ProofOfPayment != null && e.PaymentStatus == Paymentstatus.SuccessfulPayment).ToListAsync();
+            if (result == null)
+            {
+                return null;
+            }
+            return result;
+        }
     }
 }

@@ -50,8 +50,7 @@ namespace ShopSuphan.Services
 
         public async Task DeleteImage(string fileName)
         {
-            databaseContext.Remove(fileName);
-            await databaseContext.SaveChangesAsync();
+           await uploadFileService.DeleteImage(fileName);
         }
 
         public async Task<IEnumerable<ProductDescription>> GetAll(int idProduct)
@@ -79,6 +78,18 @@ namespace ShopSuphan.Services
                 }
             }
             return (errorMessage, imageName);
+        }
+
+        public async Task DeleteImageID(ProductDescription productDescription)
+        {
+            
+            databaseContext.Remove(productDescription);
+            await databaseContext.SaveChangesAsync();
+        }
+
+        public async Task<ProductDescription> GetByIdDescription(string ID)
+        {
+            return await databaseContext.ProductDescription.AsNoTracking().FirstOrDefaultAsync(x => x.ID == ID);
         }
     }
 }

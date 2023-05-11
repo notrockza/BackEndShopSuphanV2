@@ -218,6 +218,10 @@ namespace ShopSuphan.Services
             return Id;
         }
 
-
+        public async Task Delete(Account account)
+        {
+            databaseContext.Remove(account);
+            await databaseContext.SaveChangesAsync();
+        }
     }
 }

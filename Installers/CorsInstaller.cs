@@ -11,12 +11,10 @@
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     policy =>
                     {
-                        policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-            // policy.AllowAnyHeader()
-            // .AllowAnyMethod()
-            // .AllowCredentials()
-            // .WithOrigins("http://localhost:3000");
-        });
+                       policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                      //policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:5173/");
+
+                    });
             });
         }
     }

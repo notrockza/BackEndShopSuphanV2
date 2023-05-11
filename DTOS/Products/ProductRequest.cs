@@ -4,8 +4,7 @@ namespace ShopSuphan.DTOS.Products
 {
     public class ProductRequest
     {
-        [Required]
-        public int ID { get; set; }
+        public int? ID { get; set; }
 
         [Required]
         [MaxLength(100, ErrorMessage = "no more than {1} chars")]

@@ -1,18 +1,22 @@
-﻿using ShopSuphan.DTOS.ProductList;
-using ShopSuphan.Models;
+﻿using ShopSuphan.DTOS.OrderAccount;
+using ShopSuphan.DTOS.ProductList;
+using ShopSuphan.Models.OrderAggregate;
 
 namespace ShopSuphan.interfaces
 {
     public interface IOrderAccountService
     {
-        Task<IEnumerable<OrderAccount>> GetAll(int idAccount);
+        Task<IEnumerable<OrderDTO>> GetAll(int idAccount);
         Task<OrderAccount> GetByID(string id);
-        Task AddOrder(OrderAccount orderAccount, ProductListOrderRequest productListOrderRequest);
-        Task<IEnumerable<ProductList>> GetAllProductList(string idOrder);
+        Task AddOrder( ProductListOrderRequest productListOrderRequest);
+        Task<IEnumerable<OrderItem>> GetAllProductList(string idOrder);
         Task UpdateOrder(OrderAccount orderAccount);
         Task<(string errorMessage, string imageName)> UploadImage(IFormFileCollection formFiles);
         Task DeleteImage(string fileName);
         Task ConfirmOrder(List<OrderAccount> orderAccounts);
-        Task<IEnumerable<OrderAccount>> GetConfirm();
+        Task<IEnumerable<OrderDTO>> GetConfirm();
+
+        Task<IEnumerable<OrderDTO>> GetConfirmOrderAccount(int idAccount);
+        
     }
 }

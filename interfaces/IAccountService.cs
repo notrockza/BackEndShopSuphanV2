@@ -16,5 +16,6 @@ namespace ShopSuphan.interfaces
         Task<(string errorMessage, string imageName)> UploadImage(IFormFileCollection formFiles);
 
         Task DeleteImage(string fileName);
+        Task Delete(Account account);
     }
 }

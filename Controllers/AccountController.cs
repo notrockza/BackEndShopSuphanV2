@@ -20,7 +20,12 @@ namespace ShopSuphan.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> GetAccountAll()
         {
-            return Ok((await accountService.GetAll()).Select(AccountResponse.FromAccount));
+            var account = (await accountService.GetAll()).Select(AccountResponse.FromAccount);
+            if (account == null)
+            {
+                return NotFound();
+            }
+            return Ok(new { msg = "OK" , data = account });
         }
 
         [HttpPost("[action]")]
@@ -55,7 +60,7 @@ namespace ShopSuphan.Controllers
             }
             var token = accountService.GenerateToken(account);
 
-            return Ok(new { msg = "OK", data = account , token });
+            return Ok(new { msg = "OK", data = AccountResponse.FromAccount(account) , token });
         }
 
         [HttpGet("[action]/{id}")]
@@ -95,5 +100,16 @@ namespace ShopSuphan.Controllers
             await accountService.UpdateAccount(result);
             return Ok(new { msg = "OK" });
         }
+
+        [HttpDelete("[action]")]
+        public async Task<ActionResult<Account>> DeleteUser([FromQuery] int id)
+        {
+            var result = await accountService.GetByID(id);
+            if (result == null) return Ok(new { msg = "ไม่พบผู้ใช้" });
+            await accountService.Delete(result);
+            return Ok(new { msg = "OK", data = result });
+        }
+
+
     }
 }

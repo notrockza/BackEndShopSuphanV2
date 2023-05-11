@@ -33,28 +33,6 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = result });
         }
 
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetReviewByIdProductList(string idProductList)
-        {
-            var result = await reviewService.GetByIdProductList(idProductList);
-            if (result == null)
-            {
-                return Ok(new { msg = "ไม่พบข้อมูล" });
-            }
-            return Ok(new { msg = "OK", data = result });
-        }
-
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetReviewByIdCustomer(int idAccount, string idProductList)
-        {
-            var result = await reviewService.GetByIdAccount(idAccount, idProductList);
-            if (result.Count() == 0)
-            {
-                return Ok(new { msg = "ไม่พบข้อมูล" });
-            }
-            return Ok(new { msg = "OK", data = result });
-        }
-
         [HttpPost("[action]")]
         public async Task<IActionResult> AddReview([FromForm] ReviewRequest reviewRequest)
         {
@@ -68,6 +46,17 @@ namespace ShopSuphan.Controllers
             var result = await reviewService.Create(review);
             await reviewImageService.Create(imageName, result.ID);
             return Ok(new { msg = "OK", data = review });
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetReviewByIdProductandIdAccount(int idAccount, int idProduct)
+        {
+            var result = (await reviewService.GetByIdListProduct(idAccount, idProduct)).Select(ReviewResponse.FromReview);
+            if (result == null)
+            {
+                return Ok(new { msg = "ไม่พบข้อมูล" });
+            }
+            return Ok(new { msg = "OK", data = result });
         }
     }
 }

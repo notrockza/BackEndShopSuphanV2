@@ -1,4 +1,6 @@
-﻿namespace ShopSuphan.DTOS.Cart
+﻿using ShopSuphan.Settings;
+
+namespace ShopSuphan.DTOS.Cart
 {
     public class CartResponse
     {
@@ -16,7 +18,7 @@
                 ID = cart.ID,
                 AmountProduct = cart.AmountProduct,
                 Product = cart.Product,
-                ImageProduct = !string.IsNullOrEmpty(cart.Product.Image) ? "https://localhost:7048/" + "images/" + cart.Product.Image : "",
+                ImageProduct = !string.IsNullOrEmpty(cart.Product.Image) ? ServerURLcs.URLServer + "images/" + cart.Product.Image : "",
                 //Customer = cartCustomer.Customer
             };
         }

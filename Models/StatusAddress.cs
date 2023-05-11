@@ -1,0 +1,12 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace ShopSuphan.Models
+{
+    public class StatusAddress
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
+}

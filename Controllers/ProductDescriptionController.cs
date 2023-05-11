@@ -21,6 +21,7 @@ namespace ShopSuphan.Controllers
         // [FromBody] คือ Json 
         public async Task<IActionResult> AddProductDescription([FromForm] ProductDescriptionRequest productDescriptionRequest)
         {
+
             #region จัดการรูปภาพ
             (string erorrMesage, List<string> imageName) = await productDescriptionService.UploadImage(productDescriptionRequest.FormFiles);
             if (!string.IsNullOrEmpty(erorrMesage)) return BadRequest(erorrMesage);
@@ -37,12 +38,23 @@ namespace ShopSuphan.Controllers
         public async Task<IActionResult> GetDetailAll(int idProduct)
         {
             var result = (await productDescriptionService.GetAll(idProduct)).Select(ProductDescriptionResponse.FromDescription);
-            //return Ok(await orderAccountService.GetAll(idAccount));
-
-            //return Ok((await productDescriptionService.GetAll(idProduct)).Select(ProductDescriptionResponse.FromDescription));
-
             if (result.Count() == 0) return Ok(new { msg = "ไม่พบรูป" });
             return Ok(new { data = result });
+        }
+
+
+
+        [HttpDelete("[action]")]
+        public async Task<IActionResult> DeleteimageDetail(string ID)
+        {
+            var result = await productDescriptionService.GetByIdDescription(ID);
+            if (result == null)
+            {
+                return Ok(new { msg = "ไม่พบรูป" });
+            }
+            await productDescriptionService.DeleteImageID(result);
+            await productDescriptionService.DeleteImage(result.Image);
+            return Ok(new { msg = "OK", data = result });
         }
     }
 }
