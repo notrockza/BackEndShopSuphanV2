@@ -38,7 +38,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK" });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> UpdateCartCustomer([FromForm] CartRequest cartRequest)
         {
             var cartCustomer = await cartService.GetByID(cartRequest.ID);
@@ -50,7 +50,7 @@ namespace ShopSuphan.Controllers
             await cartService.Update(result);
             return Ok(new { msg = "OK" });
         }
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> DeleteCartCustomer(string id)
         {
             var result = await cartService.GetByID(id);

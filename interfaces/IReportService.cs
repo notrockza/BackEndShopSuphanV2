@@ -6,5 +6,7 @@ namespace ShopSuphan.interfaces
     {
         Task<List<ProductStatisticsDTO>> ProductStatistics();
         Task<SalesStatisticsDTO> SalesStatistics();
+        Task<SalesCommunityDTO> SalesCommunity(int? date);
+
     }
 }

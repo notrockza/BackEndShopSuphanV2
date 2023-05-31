@@ -37,7 +37,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK" });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> EditAddressStatus([FromForm] AddressRequest2 addressRequest2)
         {
             var addresses = addressRequest2.Adapt<Address>();
@@ -45,7 +45,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK" });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<Address>> UpdateAddress([FromForm] AddressInformationRequest addressInformationRequest)
         {
             var result = await addressService.GetByID(addressInformationRequest.ID);
@@ -61,7 +61,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = address });
         }
 
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> DeleteAddress(string ID)
         {
             var result = await addressService.GetByID(ID);

@@ -20,7 +20,7 @@ namespace ShopSuphan.Services
             var orders = await databaseContext.OrderAccount.ToListAsync();
             foreach (var order in orders)
             {
-                 var items = databaseContext.OrderItem.Where(e => e.OrderAccountID.Equals(order.ID)).ToList();
+                var items = databaseContext.OrderItem.Where(e => e.OrderAccountID.Equals(order.ID)).ToList();
                 if (items?.Count() > 0)
                     orderItems.AddRange(items);
             };
@@ -39,6 +39,7 @@ namespace ShopSuphan.Services
             foreach (var item in ProductStatistics) item.NumPercen = item.Amount * 100 / sum;
             return ProductStatistics;
         }
+
 
         public async Task<SalesStatisticsDTO> SalesStatistics()
         {
@@ -79,6 +80,48 @@ namespace ShopSuphan.Services
 
             return salesStatisticsDTO;
 
+        }
+
+
+        public async Task<SalesCommunityDTO> SalesCommunity(int? date)
+        {
+
+            SalesCommunityDTO salesCommunityDTO = new();
+            List<OrderItem> orderItems = new();
+            var orders = await databaseContext.OrderAccount.Where(e =>
+            e.ProofOfPayment != null && e.PaymentStatus == Paymentstatus.SuccessfulPayment &&
+            e.Created.Year == (date == 0 || date == null ? DateTime.Now.Year : date)
+            ).ToListAsync();
+            foreach (var order in orders)
+            {
+                var items = databaseContext.OrderItem
+                    .Include(e => e.Product).ThenInclude(e => e.CommunityGroup).Where(e => e.OrderAccountID.Equals(order.ID)).ToList();
+                if (items?.Count() > 0)
+                {
+                    foreach (var item in items)
+                    {
+                        var check = salesCommunityDTO.Sales.FirstOrDefault(e => e.CommunityId == item.Product.CommunityGroupID);
+                        if (check != null)
+                        {
+                            check.price += (item.ProductPrice * item.ProductAmount);
+                        }
+                        else
+                        {
+                            salesCommunityDTO.Sales.Add(new SalesCommunityItemDTOcs { price = (item.ProductPrice * item.ProductAmount), CommunityId = item.Product.CommunityGroup.ID, CommunityName = item.Product.CommunityGroup.CommunityGroupName, });
+                        }
+                    }
+                }
+            };
+
+            salesCommunityDTO.TotalPrice = salesCommunityDTO.Sales.Sum(e => e.price);
+            foreach (var item in salesCommunityDTO.Sales)
+            {
+                var Percen = item.price * 100 / salesCommunityDTO.TotalPrice;
+                item.percent = Percen;
+            }
+            salesCommunityDTO.Sales = salesCommunityDTO.Sales.OrderByDescending(e => e.price).ToList();
+
+            return salesCommunityDTO;
         }
     }
 }

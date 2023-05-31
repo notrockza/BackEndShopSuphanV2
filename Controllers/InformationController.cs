@@ -56,7 +56,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = information });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<Information>> UpdateInformation([FromForm] InformationRequest informationRequest)
         {
             var result = await informationSerices.GetByID(informationRequest.ID);
@@ -84,7 +84,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = information });
         }
 
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<Information>> DeleteInformation([FromQuery] int id)
         {
             var result = await informationSerices.GetByID(id);

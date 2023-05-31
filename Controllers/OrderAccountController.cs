@@ -44,7 +44,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = result });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> ConfirmOrder([FromForm] ConfrimOrderAccountRequest confrimOrderAccountRequest)
         
         {
@@ -77,7 +77,7 @@ namespace ShopSuphan.Controllers
             return Ok(data);
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> PaymentOrder([FromForm] OrderPaymentRequest orderPaymentRequest)
         {
             var result = await orderAccountService.GetByID(orderPaymentRequest.ID);

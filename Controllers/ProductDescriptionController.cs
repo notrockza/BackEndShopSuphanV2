@@ -44,7 +44,7 @@ namespace ShopSuphan.Controllers
 
 
 
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> DeleteimageDetail(string ID)
         {
             var result = await productDescriptionService.GetByIdDescription(ID);

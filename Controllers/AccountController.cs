@@ -74,7 +74,7 @@ namespace ShopSuphan.Controllers
             return Ok(AccountResponse.FromAccount(result));
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<IActionResult> UpdateAccount([FromForm] AccountRequest accountRequest)
         {
             var result = await accountService.GetByID(accountRequest.ID);
@@ -101,7 +101,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK" });
         }
 
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<Account>> DeleteUser([FromQuery] int id)
         {
             var result = await accountService.GetByID(id);

@@ -41,7 +41,7 @@ namespace ShopSuphan.Controllers
             return Ok(await categoryProductService.GetByID(id));
         }
 
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<CategoryProduct>> DeleteCategory([FromQuery] int id)
         {
             var result = await categoryProductService.GetByID(id);
@@ -50,7 +50,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = result });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<CategoryProduct>> UpdateCategory([FromForm] CategoryProductRequest categoryProductRequest)
         {
             var result = await categoryProductService.GetByID(categoryProductRequest.ID);

@@ -33,5 +33,13 @@ namespace ShopSuphan.Controllers
             if (result == null) return Ok(new { msg = "ไม่พบสินค้า" });
             return Ok(new { msg = "OK", data = result });
         }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetsalesCommunityDTO(int? date)
+        {
+            var result = await reportService.SalesCommunity(date);
+            if (result == null) return Ok(new { msg = "ไม่พบสินค้า" });
+            return Ok(new { msg = "OK", data = result });
+        }
     }
 }

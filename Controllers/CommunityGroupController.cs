@@ -38,7 +38,7 @@ namespace ShopSuphan.Controllers
             return Ok(await CommunityGroupService.GetByID(id));
         }
 
-        [HttpDelete("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<CategoryProduct>> DeleteCommunityGroup([FromQuery] int id)
         {
             var result = await CommunityGroupService.GetByID(id);
@@ -47,7 +47,7 @@ namespace ShopSuphan.Controllers
             return Ok(new { msg = "OK", data = result });
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<CategoryProduct>> UpdateCommunityGroup([FromForm] CommunityGroupRequest communityGroupRequest)
         {
             var result = await CommunityGroupService.GetByID(communityGroupRequest.ID);
